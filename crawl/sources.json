@@ -3,7 +3,7 @@
 		"baseUrl": "https://www.biqumh.com/",
 		"search": {
 			"url": "index.php/search?key={keyword}",
-			"comic_item_selector": ".common-comic-item",
+			"comic_item_selector": ".common-comic-item ",
 			"title_selector": ".comic__title > a",
 			"url_selector": "div > a",
 			"cover_img": ".cover > img",
