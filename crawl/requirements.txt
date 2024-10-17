@@ -1,0 +1,8 @@
+flask
+flask_cors
+cython
+pyproject-toml
+cchardet
+curl_cffi
+bs4
+pyinstaller
