@@ -16,7 +16,7 @@ class Handler1(BaseAdapter):
 
     def _init_selenium(self):
         options = Options()
-        # options.add_argument('--headless') 
+        options.add_argument('--headless') 
         return webdriver.Firefox(options=options)
 
     def search(self, keyword: str = ""):
