@@ -1,65 +1,136 @@
 {
-	"biqu": {
-		"baseUrl": "https://www.biqumh.com/",
-		"search": {
-			"url": "index.php/search?key={keyword}",
-			"comic_item_selector": ".common-comic-item ",
-			"title_selector": ".comic__title > a",
-			"url_selector": "div > a",
-			"cover_img": ".cover > img",
-			"cover_img_attribute": "data-original"
-		},
-		"chapters": {
-			"chapter_item_selector": ".chapter__item",
-			"chapter_title_selector": ".j-chapter-link",
+    "biqu": {
+        "baseUrl": "https://www.biqumh.com/",
+        "type": 0,
+        "search": {
+            "url": "index.php/search?key={keyword}",
+            "comic_item_selector": ".common-comic-item",
+            "title_selector": ".comic__title > a",
+            "url_selector": "div > a",
+            "cover_img": ".cover > img",
+            "cover_img_attribute": "data-original"
+        },
+        "chapters": {
+            "chapter_item_selector": ".chapter__item",
+            "chapter_title_selector": ".j-chapter-link",
             "chapter_url_selector": ".j-chapter-link",
-			"href_selector": "href"
-		},
-		"images": {
-			"selector": ".read-container > .rd-article-wr > .rd-article__pic > img",
-			"src_attribute": "data-original"
-		}
-	},
-	"manhuaol": {
-		"baseUrl": "https://www.manhuaol.com/",
-		"search": {
-			"url": "/search?key={keyword}",
-			"comic_item_selector": ".vbox",
-			"title_selector": "h4 > a",
-			"url_selector": "h4 > a",
-			"cover_img": ".vbox_t > mip-img",
-			"cover_img_attribute": "src"
-		},
-		"chapters": {
-			"chapter_item_selector": ".list_block > li",
-			"chapter_title_selector": "a",
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": ".read-container > .rd-article-wr > .rd-article__pic > img",
+            "src_attribute": "data-original"
+        }
+    },
+    "mhw1" : {
+        "baseUrl": "https://www.mhw1.com/",
+        "type": 0,
+        "search": {
+            "url": "index.php/search?key={keyword}",
+            "comic_item_selector": ".common-comic-item",
+            "title_selector": ".comic__title > a",
+            "url_selector": "div > a",
+            "cover_img": ".cover > img",
+            "cover_img_attribute": "data-original"
+        },
+        "chapters": {
+            "chapter_item_selector": ".chapter__item",
+            "chapter_title_selector": ".j-chapter-link",
+            "chapter_url_selector": ".j-chapter-link",
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": ".read-container > .rd-article-wr > .rd-article__pic > img",
+            "src_attribute": "data-original"
+        }
+    },
+    "manhuaol": {
+        "baseUrl": "https://www.manhuaol.com/",
+        "type": 0,
+        "search": {
+            "url": "/search?key={keyword}",
+            "comic_item_selector": ".vbox",
+            "title_selector": "h4 > a",
+            "url_selector": "h4 > a",
+            "cover_img": ".vbox_t > mip-img",
+            "cover_img_attribute": "src"
+        },
+        "chapters": {
+            "chapter_item_selector": ".list_block > li",
+            "chapter_title_selector": "a",
             "chapter_url_selector": "a",
-			"href_selector": "href"
-		},
-		"images": {
-			"selector": "img",
-			"src_attribute": "src"
-		}
-	},
-	"baozimh" : {
-		"baseUrl": "https://www.baozimh.com/",
-		"search": {
-			"url": "/search?q={keyword}",
-			"comic_item_selector": ".comics-card",
-			"title_selector": ".comics-card__title > h3",
-			"url_selector": ".comics-card__info",
-			"cover_img": "div a.comics-card__poster.text-decoration-none > amp-img",
-			"cover_img_attribute": "src"
-		},
-		"chapters": {
-			"chapter_item_selector": ".comics-chapters",
-			"chapter_title_selector": "a > div > span",
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": "img",
+            "src_attribute": "src"
+        }
+    },
+    "baozimh": {
+        "baseUrl": "https://www.baozimh.com/",
+        "type": 0,
+        "search": {
+            "url": "/search?q={keyword}",
+            "comic_item_selector": ".comics-card",
+            "title_selector": ".comics-card__title > h3",
+            "url_selector": ".comics-card__info",
+            "cover_img": "div a.comics-card__poster.text-decoration-none > amp-img",
+            "cover_img_attribute": "src"
+        },
+        "chapters": {
+            "chapter_item_selector": ".comics-chapters",
+            "chapter_title_selector": "a > div > span",
             "chapter_url_selector": "a",
-			"href_selector": "href"
-		},
-		"images": {
-			"selector": ".comic-contain amp-img",
-			"src_attribute": "src"
-		}
-	}
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": ".comic-contain amp-img",
+            "src_attribute": "src"
+        }
+    },
+    "gufeng": {
+        "baseUrl": "https://www.gufengmh9.com",
+        "type": 1,
+        "search": {
+            "url": "search/?keywords={keyword}",
+            "comic_item_selector": ".item-lg",
+            "title_selector": ".ell > a",
+            "url_selector": "a.cover",
+            "cover_img": "a.cover > img",
+            "cover_img_attribute": "src"
+        },
+        "chapters": {
+            "chapter_item_selector": "#chapter-list-1 a",
+            "chapter_title_selector": "span",
+            "chapter_url_selector": "a",
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": "#images > img",
+            "src_attribute": "src",
+            "type": 2,
+            "next_button_selector": "body > div.chapter-view > div:nth-child(4) > div > a:nth-child(5)"
+        }
+    }, 
+    "36mh": {
+        "baseUrl": "https://www.36mh.org/",
+        "type": 1,
+        "search": {
+            "url": "/index.php/search?key={keyword}",
+            "comic_item_selector": "div.bookList_2 > div.item",
+            "title_selector": "div.item > p.title > a",
+            "url_selector": "div.item > p.title > a",
+            "cover_img": "div.book > img.cover",
+            "cover_img_attribute": "src"
+        },
+        "chapters": {
+            "chapter_item_selector": "#chapterlistload > div > a",
+            "chapter_title_selector": "a",
+            "chapter_url_selector": "a",
+            "href_selector": "href"
+        },
+        "images": {
+            "selector": "ul#images > li > img",
+            "src_attribute": "src"
+        }
+    }
 }

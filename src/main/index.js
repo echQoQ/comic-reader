@@ -74,7 +74,7 @@ const startPythonServer = () => {
 
 function stopPythonServer() {
   if (pythonProcess) {
-    pythonProcess.kill(); // 杀掉 Python 进程
+    var kill = spawn('taskkill', ['/IM', 'app.exe', '/F']);
     console.log('Python process terminated');
   }
 }

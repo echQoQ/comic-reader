@@ -4,6 +4,15 @@ from comicCrawler import Crawler
 import sys
 import os
 import logging
+import signal
+import sys
+
+def signal_handler(sig, frame):
+    print('Exiting gracefully...')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
 
 # 初始化 Flask 应用并设置静态文件目录
 app = Flask(__name__, static_folder=os.path.join(os.getcwd(), 'public'))
@@ -131,4 +140,6 @@ if __name__ == '__main__':
     else:
         json_file = os.path.join(os.path.dirname(__file__), 'sources.json')
     os.makedirs(app.static_folder, exist_ok=True)
+    os.makedirs(os.path.join(app.static_folder, 'comics'), exist_ok=True)
+
     app.run(debug=True, port=port, host='127.0.0.1')

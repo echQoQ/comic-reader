@@ -4,6 +4,7 @@ out
 .DS_Store
 *.log*
 crawl/__pycache__
+crawl/comicCrawler/__pycache__
 crawl/dist
 crawl/public
 crawl/build

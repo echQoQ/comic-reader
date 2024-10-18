@@ -90,6 +90,8 @@ class Crawler():
 	def load_downloaded_comics(self, comic_base_path):
 		try:
 			jsonData = {}
+			if ( not os.path.exists(os.path.join(comic_base_path, 'metadata.json'))):
+				return []
 			with open(os.path.join(comic_base_path, 'metadata.json'), 'r', encoding='utf-8') as f:
 				jsonData = json.load(f)
 			return jsonData.keys()
@@ -99,6 +101,10 @@ class Crawler():
 	
 	def load_downloaded_chapters(self, comic_base_path, comic_name):
 		try:
+			if ( not os.path.exists(os.path.join(comic_base_path, 'metadata.json'))):
+				return []
+			if ( not os.path.exists(os.path.join(comic_base_path, comic_name,'metadata.json'))):
+				return []
 			with open(os.path.join(comic_base_path, 'metadata.json'), 'r', encoding='utf-8') as f:
 				jsonData = json.load(f)
 				flag = False
