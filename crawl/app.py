@@ -5,10 +5,21 @@ import sys
 import os
 import logging
 import signal
-import sys
+import shutil
+import glob
+
+logging.basicConfig(filename='app.log', level=logging.INFO)
+
+def clean_temp_directory():
+    temp_dir = os.path.join(os.environ['TEMP'], '_MEI*')
+    for temp_folder in glob.glob(temp_dir):
+        if os.path.dirname(__file__) == temp_folder:
+            continue
+        shutil.rmtree(temp_folder, ignore_errors=True)
 
 def signal_handler(sig, frame):
     print('Exiting gracefully...')
+    clean_temp_directory()
     sys.exit(0)
 
 signal.signal(signal.SIGINT, signal_handler)
@@ -17,6 +28,14 @@ signal.signal(signal.SIGTERM, signal_handler)
 # 初始化 Flask 应用并设置静态文件目录
 app = Flask(__name__, static_folder=os.path.join(os.getcwd(), 'public'))
 CORS(app, resources={r"*": {"origins": r"*"}})
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({'success': False, 'message': 'Internal Server Error'}), 500
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({'success': False, 'message': 'Resource not found'}), 404
 
 @app.route('/search', methods=['POST'])
 def handle_search():
@@ -134,6 +153,7 @@ def handle_delete_chapter():
 
 
 if __name__ == '__main__':
+    clean_temp_directory()
     port = int(sys.argv[1])
     if len(sys.argv) > 2:
         json_file = sys.argv[2]
@@ -142,4 +162,4 @@ if __name__ == '__main__':
     os.makedirs(app.static_folder, exist_ok=True)
     os.makedirs(os.path.join(app.static_folder, 'comics'), exist_ok=True)
 
-    app.run(debug=True, port=port, host='127.0.0.1')
+    app.run(debug=False, port=port, host='127.0.0.1', threaded=True)
