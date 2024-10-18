@@ -77,7 +77,7 @@
             "cover_img_attribute": "src"
         },
         "chapters": {
-            "chapter_item_selector": ".comics-chapters",
+            "chapter_item_selector": "#chapter-items > .comics-chapters, #chapters_other_list > .comics-chapters",
             "chapter_title_selector": "a > div > span",
             "chapter_url_selector": "a",
             "href_selector": "href"

@@ -6,7 +6,7 @@ class Handler0(BaseAdapter):
     def search(self, keyword: str = ""):
         url = self.features['search']['url'].format(keyword=keyword)
         html = self.get(url).text
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'lxml')
         comic_list = soup.select(self.features['search']['comic_item_selector'])
 
         return [
@@ -34,8 +34,7 @@ class Handler0(BaseAdapter):
 
     def crawl_images(self, chapter_href):
         html = self.get(chapter_href).text
-        soup = BeautifulSoup(html, 'html.parser')
-        print(soup.prettify())
+        soup = BeautifulSoup(html, 'lxml')
         images = []
         image_soup_list = soup.select(self.features['images']['selector'])
 
