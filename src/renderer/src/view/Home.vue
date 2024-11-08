@@ -12,7 +12,7 @@
       />
   </div>
   <div class="container">
-    <h1>There's no GOD.</h1>
+    <h1 style="display: block; float: left;">There's no GOD.</h1>
     <div class="search-container">
       <a-input-search
         v-model:value="searchForm.keyword"
@@ -151,18 +151,20 @@ onMounted(async () => {
 
 .container {
   color: black;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
   .input-search {
     background-color: transparent !important;
     opacity: 0.6 !important;
-    width: 40vw !important;
+    width: min(450px, 100vw) !important;
   }
   .search-results-container {
+    width: min(450px, 100vw) !important;
     margin-top: 2px;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding: 10px;
-    max-height: 60vh;
+    max-height: min(800px, 80vh);
     cursor: pointer;
   }
   .search-results-container::-webkit-scrollbar {

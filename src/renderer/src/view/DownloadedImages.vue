@@ -95,7 +95,7 @@ const onChangeChapter = async index => {
 .images-container {
 	margin-top: 12vh;
     overflow-x: auto !important;
-	width: 50vw;
+	max-width: min(600px, 100vw);
 	height: 90vh;
 }
 

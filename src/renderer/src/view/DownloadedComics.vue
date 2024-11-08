@@ -201,7 +201,7 @@ const deleteComics = async () => {
 	flex-wrap: wrap;
 	justify-content:safe;
     overflow-x: auto;
-	max-width: 60vw;
+	max-width: min(600px, 100vw);
 	max-height: 80vh;
 	min-width: 40vw;
 	min-height: 50vh;
