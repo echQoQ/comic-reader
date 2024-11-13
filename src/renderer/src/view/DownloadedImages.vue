@@ -15,7 +15,7 @@
 		/>
 	</div>
 	<div class="container">
-		<div class="images-container">
+		<div class="images-container" ref="box">
 			<img
 				v-for="(item, index) in imageList"
 				class="single-image"
@@ -49,6 +49,7 @@ const indicator = h(LoadingOutlined, {
     },
     spin: true,
 });
+let box = ref(null)
 
 const showLoading = ref(false)
 
@@ -61,12 +62,14 @@ let current = ref(0)
 
 onMounted(() => {
 	current.value = comicStore.currentChapterIndex + 1
+	box.value.scrollTop = 0
 })
 
 const onChangeChapter = async index => {
 	showLoading.value = true
 	await comicStore.loadDownloadedImages(index-1)
 	showLoading.value = false
+	box.value.scrollTop = 0
 }
 
 </script>

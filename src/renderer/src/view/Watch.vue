@@ -14,13 +14,15 @@
 		/>
 	</div>
 	<div class="container">
-		<div class="images-container">
-			<img
-				v-for="(item, index) in imageList"
-				class="single-image"
-			    v-lazy="item"
+		<div class="images-container" ref="box">
+			<div v-for="(item, index) in imageList"
 				:key="item"
+			>
+				<img
+					class="single-image"
+					v-lazy="item"
 				/>
+			</div>	
 		</div>
 		<a-pagination @change="onChangeChapter" :pageSize="1" v-model:current="current" :total="total" size="large" show-quick-jumper />
 	</div>
@@ -50,6 +52,7 @@ const indicator = h(LoadingOutlined, {
 });
 
 const showLoading = ref(false)
+let box = ref(null)
 
 let chapterName = storeToRefs(comicStore).currentChapterTitle
 let name = storeToRefs(comicStore).name
@@ -60,13 +63,14 @@ let current = ref(0)
 
 onMounted(() => {
 	current.value = comicStore.currentChapterIndex + 1
-	console.log(imageList.value)
+	box.value.scrollTop = 0
 })
 
 const onChangeChapter = async index => {
 	showLoading.value = true
 	await comicStore.loadImages(index-1)
 	showLoading.value = false
+	box.value.scrollTop = 0
 }
 
 </script>

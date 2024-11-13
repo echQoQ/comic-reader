@@ -132,9 +132,10 @@ onMounted(async () => {
 .breadcrumb {
 	position: absolute;
 	top: 20px;
+  color: lightblue;
 	left: 50px;
     a {
-        color: black;
+        color: lightblue;
     }
     .p1 {
         font-weight: bold;
@@ -150,10 +151,14 @@ onMounted(async () => {
 }
 
 .container {
-  color: black;
+  color: lightblue;
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  justify-content: flex-start;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%);
   .input-search {
     background-color: transparent !important;
     opacity: 0.6 !important;
